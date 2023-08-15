@@ -1,5 +1,4 @@
 # xulei
-糖尿病人的口腔样本
 cd-hit-est -i meta.fasta -o meta_derepprefix.cdhit.c0.9865.fasta -n 9 -c 0.9865 -G 0 -M 0 -d 0 -aS 0.9 -r 0 -T 40
 less meta_derepprefix.cdhit.c0.9865.fasta.clstr | perl -e 'my $head = <>;chomp $head;$head =~ s/\>//;$head =~ s/\ //;print "$head";while(<>){chomp;if(/^\>Clust/){$_ =~ s/\>//;$_ =~ s/\ //;print "\n$_"}else{my @t = split/\,/;my @a = split/\.\.\./,$t[1];$a[0] =~ s/\>//;$a[0] =~ s/\ //;print "\t$a[0]"}};print "\n"' > otu_seqid.cdhit.c0.9865.txt
 format_seqid.pl otu_seqid.cdhit.c0.9865.txt otu_seqid.cdhit
